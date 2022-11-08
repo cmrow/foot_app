@@ -3,6 +3,9 @@ import { useProductStore } from "./../stores/products";
 import { storeToRefs } from "pinia";
 import NavBar from "./../components/NavBar.vue"
 import ProductCard from '../components/ProductCard.vue'
+import Carrusel from '../components/Carrusel.vue'
+import Footer from '../components/Footer.vue'
+
 
 const productStore = useProductStore();
 const { additional, burgers, hot_dogs } = storeToRefs(productStore);
@@ -14,8 +17,9 @@ let hot_dogs1 = hot_dogs;
 
 <template>
   <NavBar></NavBar>
-  <h1>Home</h1>
+  <!-- <Carrusel/> -->
   <ProductCard/>
+  <Footer/>
   
 </template>
 

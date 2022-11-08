@@ -69,7 +69,7 @@ import { ref } from "vue";
 
 <style scoped>
 .navbar {
-  background-color: #3e2420 !important;
+  background-color: gainsboro !important;
   font-family: "Roboto", sans-serif;
 }
 .navbar button {
