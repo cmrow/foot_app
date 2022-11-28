@@ -1,7 +1,5 @@
 <script setup>
 import { reactive, ref, onMounted, computed, onUpdated} from 'vue'
-import { useVuelidate } from '@vuelidate/core'
-import { required, maxLength, minValue, numeric,alpha, helpers } from '@vuelidate/validators'
 
 const categorys = reactive([]);
 const types = reactive([]);
@@ -34,24 +32,53 @@ const state = reactive ({
 // searchCustomers()
 
 
-let  customers = reactive([]);
-const getCustomer = async() => {
-  const urlBD = "https://pqr-production.up.railway.app/api/v1/customer"
-  try {
-    const res = await fetch(urlBD)
-    const data  = await res.json()
-    customers = data
-    console.log("state.customers...",customers) 
-  }catch(error){
-    console.log(error)
-  }
-}
+let  customers = reactive([
+    {
+        "id": 1,
+        "names": "Jhon",
+        "document": "2363213258",
+        "email": "jhondoe@correo.com",
+        "surnames": "Doe",
+        "fullName": "Jhon Doe",
+        "dateOfBirth": "1998-10-24",
+        "age": "24",
+        "address": "214 street Pontifician Av.",
+        "phone": "3195861268",
+        "createdAt": "2022-11-17T13:36:16.000Z",
+        "updatedAt": "2022-11-17T13:36:16.000Z"
+    },
+    {
+        "id": 2,
+        "names": "Dev",
+        "document": "458349590",
+        "email": "envioshseq@gmail.com",
+        "surnames": "Torvald",
+        "fullName": "Dev Torvald",
+        "dateOfBirth": "2001-10-17",
+        "age": "21",
+        "address": "356 street 5 Av.",
+        "phone": "75060337",
+        "createdAt": "2022-11-17T14:42:46.000Z",
+        "updatedAt": "2022-11-17T14:42:46.000Z"
+    }
+]);
+// const getCustomer = async() => {
+//   const urlBD = "https://pqr-production.up.railway.app/api/v1/customer"
+//   try {
+//     const res = await fetch(urlBD)
+//     const data  = await res.json()
+//     customers = data
+//     console.log("state.customers...",customers) 
+//   }catch(error){
+//     console.log(error)
+//   }
+// }
 
-onMounted(() => {
-  console.log("state.customers...🎄",customers)
+// onMounted(() => {
+//   console.log("state.customers...🎄",customers)
 
-  getCustomer();
-})
+//   getCustomer();
+// })
 
 const searchCustomerss = () => {
   // let res = [];
@@ -73,7 +100,6 @@ const searchCustomerss = () => {
         <div class="mb-3">
         <label for="disabledTextInput" class="form-label">Cliente</label>
         <input type="text" id="disabledTextInput" class="form-control" placeholder="Nombre del cliente"  v-model="formCreatePQR.client">
-        <span v-for="error in v$.client.$errors" .key="error.$uid" style="color: red;">{{error.$message}}</span>
         </div>
         <!-- {{state.filterCustomers}} -->
         <!-- {{customers.value}}

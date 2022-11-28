@@ -1,10 +1,16 @@
 <script setup>
+import Pqr_copy from '../src/components/create_pqr/Pqr_copy.vue'
 </script>
 
 <template>
   <router-link to="/">Home</router-link>
   {{ ' ' }}
   <router-link to="/products">Productos</router-link>
+  <br>
+  <br>
+  <Pqr_copy/>
+   <br>
+  <br>
   <router-view></router-view>
 </template>
 
